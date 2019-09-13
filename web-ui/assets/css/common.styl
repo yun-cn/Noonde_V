@@ -1,0 +1,250 @@
+$my-justifies1 = {
+  left:    flex-start,
+  center:  center,
+  right:   flex-end,
+  around:  space-around,
+  between: space-between,
+  evenly:  space-evenly
+}
+$my-aligns1 = {
+  top:     flex-start,
+  middle:  center,
+  bottom:  flex-end,
+  stretch: stretch
+}
+for jkey, jval in $my-justifies1
+  for akey, aval in $my-aligns1
+    .u-row-{jkey}-{akey}
+      display         flex
+      flex-direction  row
+      justify-content jval
+      align-items     aval
+
+$my-justifies2 = {
+  top:     flex-start,
+  middle:  center,
+  bottom:  flex-end,
+  around:  space-around,
+  between: space-between,
+  evenly:  space-evenly
+}
+$my-aligns2 = {
+  left:    flex-start,
+  center:  center,
+  right:   flex-end,
+  stretch: stretch
+}
+for akey, aval in $my-aligns2
+  for jkey, jval in $my-justifies2
+    .u-col-{akey}-{jkey}
+      display         flex
+      flex-direction  column
+      justify-content jval
+      align-items     aval
+
+.u-row-reverse
+  display        flex
+  flex-direction row-reverse !important
+
+.u-wrap-reverse
+  display   flex
+  flex-wrap wrap-reverse !important
+
+.u-wrap
+  display   flex
+  flex-wrap wrap
+
+.u-full
+  display flex
+  flex    1
+
+$my-layouts = {
+  m: margin,
+  p: padding
+}
+for key, val in $my-layouts
+  for i in (0..50)
+    pi = i * 2
+    .u-{key}t{pi}
+      {val}-top:    t(pi) !important
+    .u-{key}r{pi}
+      {val}-right:  t(pi) !important
+    .u-{key}b{pi}
+      {val}-bottom: t(pi) !important
+    .u-{key}l{pi}
+      {val}-left:   t(pi) !important
+    .u-{key}x{pi}
+      {val}-left:   t(pi) !important
+      {val}-right:  t(pi) !important
+    .u-{key}y{pi}
+      {val}-top:    t(pi) !important
+      {val}-bottom: t(pi) !important
+    .u-{key}a{pi}
+      {val}:  t(pi) t(pi) !important
+
+for i in (1..10)
+  .u-g{i}
+    flex-basis 0
+    flex-grow  i
+
+for i in (0..20)
+  .u-br{i}
+    border-radius: t(i)
+
+for i in (0..40)
+  pi = i * 2
+  .u-fs{pi}
+    font-size: t(pi) !important
+
+for i in (0..20)
+  pi = i / 10
+  .u-ls{i}
+    letter-spacing: t(pi)
+
+for i in (0..30)
+  pi = i / 10
+  .u-lh{i}
+    line-height: pi
+
+$my-weights = {
+  fw0: normal,
+  fw1: 100,
+  fw2: 200,
+  fw3: 300,
+  fw4: 400,
+  fw5: 500,
+  fw6: 600,
+  fw7: 700,
+  fw8: 800,
+  fw9: 900
+}
+for key, val in $my-weights
+  .u-{key}
+    font-weight: val !important
+
+$my-top = {
+  t1: -1px,
+  t2: -2px,
+  t3: -3px,
+  t4: -4px,
+  t5: -5px,
+  t6: -6px
+}
+for key, val in $my-top
+  .u-{key}
+    top: val
+
+.u-relative
+  position relative !important
+
+.u-absolute
+  position absolute !important
+
+.u-fixed
+  position fixed !important
+
+.u-c
+  text-align center
+
+.u-r
+  border-radius 50%
+
+.u-m
+  vertical-align middle
+
+.u-b
+  display block
+
+.u-i
+  display inline-block
+
+.u-ww
+  width 100%
+
+.u-wa
+  width auto !important
+
+.u-hh
+  height 100%
+
+.u-nowrap
+  white-space nowrap
+
+.u-break-all
+  word-break break-all
+
+.u-no-shrink
+  flex-shrink 0
+
+.u-ellipsis
+  overflow      hidden
+  text-overflow ellipsis
+
+.u-pointer
+  cursor pointer
+
+// .u-option
+//   transition none
+//
+//   .chip__content
+//     cursor        pointer
+//     padding-left  p(10, 10)
+//     padding-right p(10, 10)
+//
+// .u-delim
+//   height p(24, 24)
+//   width  p(4, 4)
+//
+// .u-chip
+//    height        p(24, 24)
+//    line-height   p(24, 24)
+//
+//    .chip__content
+//      height        p(24, 24)
+//      line-height   p(24, 24)
+//      padding-left  p(8, 8)
+//      padding-right p(8, 8)
+//
+// .u-label
+//   color            rgba(0, 0, 0, .54)
+//   font-size        16px
+//   transform-origin left top
+//   transform        scale(.75)
+//
+// .u-img
+//   transition opacity .4s
+//   opacity    0
+//
+//   &[lazy=loaded]
+//     opacity 1
+//
+// #u-tooltip
+//   z-index 2
+
+.u-loader
+  animation        loader 1s infinite linear
+  transform-origin center center
+
+.u-stamp
+  animation stamp .3s
+
+@keyframes loader
+  from {
+    transform rotate(0)
+  }
+  to {
+    transform rotate(360deg)
+  }
+
+@keyframes stamp
+  from {
+    transform scale(2.0)
+    opacity   0
+  }
+  to {
+    transform scale(1.0)
+    opacity   1
+  }
+
+// .u-grey
+//   background-color #f6f6fa

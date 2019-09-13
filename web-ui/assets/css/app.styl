@@ -1,0 +1,146 @@
+html
+  @media (max-width: 600px)
+    font-size 14px
+
+  @media (min-width: 600px) and (max-width: 1264px)
+    font-size calc(14px + (100vw - 600px) * (16 - 14) / (1264 - 375))
+
+  @media (min-width: 1264px)
+    font-size 16px
+
+#app
+  font-size        100%
+  font-weight      300
+  letter-spacing   t(.5)
+  overflow-y       auto
+  background-color var(--page-back)
+  color            var(--page-fore)
+  font-family      Roboto, 'Noto Sans Japanese', sans-serif
+
+  p
+    margin 0
+
+  a
+    text-decoration none
+    color var(--link-fore)
+
+    .v-icon
+      color var(--link-fore)
+
+    &:hover, &:active
+      color var(--link-fore-hover)
+
+      .v-icon
+        color var(--link-fore-hover)
+
+  button:focus
+    outline 0
+
+
+  input:-webkit-autofill
+    -webkit-box-shadow: 0 0 0 1000px white inset !important
+
+// .v-dialog
+//   max-height 100%
+
+//   .v-card__text
+//     max-height 70vh
+//     overflow-y auto
+
+//.v-bottom-sheet
+//  .v-card
+//    max-height 70vh
+//    overflow-y auto
+
+// //
+// //   .v-list__tile__action .v-icon
+// //     color #7f8c8d
+//
+
+// h1
+//   line-height    1.04em
+//   font-size      t(112)
+//   letter-spacing t(0)
+// h2
+//   line-height    1.08em
+//   font-size      t(56)
+//   letter-spacing t(0)
+// h3
+//   line-height    1.12em
+//   font-size      t(45)
+//   letter-spacing t(0)
+// h4
+//   line-height 1.16em
+//   font-size   t(34)
+// h5
+//   line-height 1.20em
+//   font-size   t(24)
+// h6
+//   line-height 1.24em
+//   font-size   t(20)
+//
+//
+// .v-chip__content
+//   line-height t(18)
+//
+// .v-btn
+//   margin 0
+//
+// .v-select__selections input
+//   padding 0
+//
+// .v-text-field input
+//   line-height t(24)
+//
+// .input-group__details, .input-group__hint
+//   padding-top t(2)
+//
+// .input-group--text-field.input-group--prepend-icon
+//   .input-group__details
+//     max-width 100%
+//
+// main
+//   overflow hidden
+//
+// // .v-pagination__item
+// //   color #7f8c8d
+// //
+// //   &.v-pagination__item--active
+// //     color #fff
+//
+// .v-messages__message
+//   line-height 1.1
+//
+// .navigation-drawer--temporary, .navigation-drawer--is-mobile
+//   z-index 91
+//
+// .toolbar--clipped
+//   z-index 89
+//
+// .overlay
+//   z-index 90 !important
+//
+// .tooltip__content.menuable__content__active
+//   z-index 240 !important
+//
+// .menu__content.menu__content--select.menuable__content__active
+//   z-index 300 !important
+//
+// // .divider
+// //   background-color #9e9e9e
+// //
+// // .card__text
+// //   color #424242
+// //
+// // .btn--flat
+// //   color #757575
+// //
+// // .pagination__item
+// //   color #607d8b
+// //
+// //   &.pagination__item--active
+// //     color white
+// //
+// // .pagination__navigation .icon
+// //   color #607d8b
+//

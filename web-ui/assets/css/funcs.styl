@@ -1,0 +1,16 @@
+t(val)
+  unit(val / 16px, rem)
+
+p(large, small)
+  "calc(%s + (1rem - 14px) * (%s - %s) / (16 - 14))" % (unit(small, px) large small)
+
+set-widths(widths)
+  .c-tr
+    min-width t(sum(widths))
+
+  .c-td
+    for i in range(1, length(widths))
+      &:nth-child({i})
+        flex-grow  widths[i - 1]
+        flex-basis 0
+        min-width  t(widths[i - 1])

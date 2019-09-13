@@ -1,0 +1,40 @@
+components:
+  c-header-user:
+    navbar-recommended: 注目
+    navbar-space: スペース
+    navbar-listing: 民泊
+    navbar-contribution: 投稿
+
+pages:
+  auth:
+    sign:
+      title: アカウント作成
+      email: メールアドレス*
+      nick-name: ニックネーム
+      password: パスワード*
+      create-btn: アカウント作成
+      email-error: メールアドレスは必須です
+      nick-name-error: ニックネームは必須です
+      password-error: パスワードは必須です
+      validate-email-message: メールアドレスが不正です
+      invalid-value-email-message: そのメールアドレスは既に登録されています
+      validate-password-error: パスワードは6桁以上16桁以下にする必要があります
+      validate-name-error: ニックネームは2桁以上6桁以下にする必要があります
+
+    login:
+      title: ログイン
+      email: メールアドレス
+      password: パスワード
+      login-btn: ログイン
+      login-error: ログインに失敗しました
+      remember-session: ログイン情報を記録する
+      validate-email-message: メールアドレスが不正です
+      validate-password-error: パスワードは6桁以上16桁以下にする必要があります
+
+  note:
+    new:
+      input-title: ノートタイトル
+      no-input-title: タイトル未設定
+      input-body: ノート本文
+      save-btn: 保存
+      open-btn: 公開

@@ -1,0 +1,5 @@
+components:
+  c-header:
+    navbar-recommended: recommended
+    navbar-space: Space
+    navbar-inn: Inn
