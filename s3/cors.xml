@@ -1,0 +1,7 @@
+<CORSConfiguration>
+    <CORSRule>
+        <AllowedOrigin>http://127.0.0.1:3000</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <AllowedHeader>*</AllowedHeader>
+    </CORSRule>
+</CORSConfiguration>

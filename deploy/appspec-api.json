@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "Resources": [
+    {
+      "TargetService": {
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+          "TaskDefinition": "arn:aws:ecs:ap-northeast-1:961078153154:task-definition/noonde-td-api:4",
+          "LoadBalancerInfo": {
+            "ContainerName": "noonde-container-api",
+            "ContainerPort": 3000
+          }
+        }
+      }
+    }
+  ]
+}

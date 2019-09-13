@@ -1,0 +1,102 @@
+fragment SearchRoomListFragment on SearchRoom {
+  id
+  uid
+  name
+  hasDirectReservationPlans
+  hasLastMinuteDiscountPlans
+  hasTodayReservationPlans
+  capacity
+  rentalReputationScore
+  rentalReputationCount
+  totalReputationScore
+  totalReputationCount
+  prices {
+    minText
+    minUnitText
+    maxText
+    maxUnitText
+    __typename
+  }
+  thumbnails {
+    ... on SearchThumbnail {
+      url
+      __typename
+    }
+    __typename
+  }
+  isInquiryOnly
+  ownerRank
+  stateText
+  city
+  latitude
+  longitude
+  spaceUsername
+  isFavorite
+  access
+  availablePlanCount
+  plans {
+    ... on SearchPlan {
+      id
+      name
+      price {
+        minText
+        minUnitText
+        maxText
+        maxUnitText
+        __typename
+      }
+      directReservationAccepted
+      isLastMinuteDiscount
+      isMonthlyDiscount
+      isWeeklyDiscount
+      todayReservationAccepted
+      __typename
+    }
+    __typename
+  }
+  isSponsoredPromotionRoom
+  sponsoredPromotions {
+    ... on SearchSponsoredPromotion {
+      id
+      name
+      __typename
+    }
+    __typename
+  }
+  isCancelFree
+  __typename
+}
+
+query Search($priceType: PriceType!, $page: Int, $perPage: Int, $startedAt: String, $startedTime: String, $endedAt: String, $endedTime: String, $amenities: String, $geocode: String, $minCapacity: Int, $maxCapacity: Int, $hasDirectReservationPlans: Boolean, $hasLastMinuteDiscountPlans: Boolean, $hasTodayReservationPlans: Boolean, $ownerRank: OwnerRank, $minPrice: Int, $maxPrice: Int, $keyword: String, $state: String, $location: String, $eventType: String, $sponsoredPromotionIds: String, $roomIds: String, $spaceType: String, $withRecommend: Boolean) {
+  eventType(name: $eventType) {
+    id
+    name
+    nameText
+    __typename
+  }
+  largeArea(name: $location) {
+    id
+    name
+    nameText
+    __typename
+  }
+  searchRooms(priceType: $priceType, page: $page, perPage: $perPage, startedAt: $startedAt, startedTime: $startedTime, endedAt: $endedAt, endedTime: $endedTime, amenities: $amenities, geocode: $geocode, minCapacity: $minCapacity, maxCapacity: $maxCapacity, hasDirectReservationPlans: $hasDirectReservationPlans, hasLastMinuteDiscountPlans: $hasLastMinuteDiscountPlans, hasTodayReservationPlans: $hasTodayReservationPlans, ownerRank: $ownerRank, minPrice: $minPrice, maxPrice: $maxPrice, keyword: $keyword, state: $state, location: $location, eventTypeName: $eventType, sponsoredPromotionIds: $sponsoredPromotionIds, roomIds: $roomIds, spaceType: $spaceType, withRecommend: $withRecommend) {
+    results {
+      ...SearchRoomListFragment
+      __typename
+    }
+    pageInfo {
+      resultsCount
+      totalCount
+      currentPage
+      totalPages
+      hasNextPage
+      nextPage
+      hasPreviousPage
+      previousPage
+      hasPlanDetails
+      __typename
+    }
+    __typename
+  }
+}

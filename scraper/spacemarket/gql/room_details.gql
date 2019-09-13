@@ -1,0 +1,241 @@
+query room($id: Int, $uid: String, $searchSessionId: String, $rentType: RentType!, $canRentType: RentType!) {
+  room(id: $id, uid: $uid, rentType: $rentType, searchSessionId: $searchSessionId) {
+    id
+    uid
+    breadcrumbs {
+      title
+      path
+      __typename
+    }
+    rentType
+    allowRentTypes
+    canRentRoom(rentType: $canRentType)
+    name
+    capacity
+    description
+    reservableStart
+    equipmentDescription
+    isFavorite
+    favoritesCount
+    allowRentTypes
+    roomDisplayType
+    roomSettingStatus
+    reputationsCount
+    amenities {
+      results {
+        name
+        nameText
+        __typename
+      }
+      __typename
+    }
+    eventTypes {
+      results {
+        name
+        nameText
+        __typename
+      }
+      __typename
+    }
+    plans(page: 1) {
+      results {
+        id
+        name
+        description
+        directReservationAccepted
+        isLastMinuteDiscount
+        lastMinuteDiscountPercentage
+        minRequiredHour
+        hourlyPriceText
+        minHourlyPrice
+        hourlyPriceUnitText
+        dailyPriceText
+        dailyPriceUnitText
+        stayPriceText
+        stayPriceUnitText
+        optionCleaningPrice
+        optionCleaningPriceText
+        stayCheckinStartHour
+        stayCheckinEndHour
+        stayCheckoutHour
+        weeklyDiscountPercentage
+        monthlyDiscountPercentage
+        __typename
+      }
+      __typename
+    }
+    prices(limit: 20) {
+      minText
+      minUnitText
+      maxText
+      maxUnitText
+      __typename
+    }
+    hasDirectReservationPlans
+    hasLastMinuteDiscountPlans
+    hasWeeklyDiscount
+    hasMonthlyDiscount
+    area
+    foodDescription
+    trashDescription
+    embedVideoUrl
+    embedVrUrl
+    thumbnails(page: 1, perPage: 30) {
+      results {
+        url
+        description
+        __typename
+      }
+      __typename
+    }
+    drawings(page: 1, perPage: 30) {
+      results {
+        url
+        description
+        __typename
+      }
+      __typename
+    }
+    attachFiles(page: 1) {
+      results {
+        url
+        description
+        __typename
+      }
+      __typename
+    }
+    relatedEntries(page: 1) {
+      results {
+        title
+        url
+        image
+        description
+        __typename
+      }
+      __typename
+    }
+    reputations(page: 1) {
+      results {
+        description
+        replyReputation
+        from {
+          ... on User {
+            name
+            profileImage
+            username
+            __typename
+          }
+          __typename
+        }
+        reservation {
+          startedAt
+          eventTypeText
+          eventType
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    optionItemThumbnails(page: 1) {
+      results {
+        id
+        description
+        url
+        __typename
+      }
+      __typename
+    }
+    optionItems(page: 1) {
+      results {
+        name
+        priceText
+        priceUnitText
+        description
+        __typename
+      }
+      __typename
+    }
+    terms
+    policy
+    policyType
+    space {
+      name
+      username
+      state
+      stateText
+      city
+      address1
+      address2
+      description
+      latitude
+      longitude
+      access
+      spaceType
+      spaceTypeText
+      __typename
+    }
+    owner {
+      id
+      name
+      corpName
+      rank
+      profile
+      profileImage
+      username
+      createdAt
+      confirmRate
+      confirmRateEvaluation
+      confirmRateText
+      replyRate
+      replyRateEvaluation
+      replyRateText
+      replyTimeAvg
+      replyTimeAvgEvaluation
+      replyTimeAvgText
+      isVerifiedEmail
+      isVerifiedTel
+      isAvailableJcbCards
+      __typename
+    }
+    reputationSummary {
+      score
+      count
+      __typename
+    }
+    usageRates {
+      eventTypeText
+      rate
+      __typename
+    }
+    usedGuestsCount(days: 7)
+    sponsoredPromotions(page: 1) {
+      results {
+        id
+        name
+        brandName
+        sponsorName
+        link
+        __typename
+      }
+      __typename
+    }
+    isCancelFree
+    __typename
+  }
+  banners {
+    results {
+      id
+      title
+      subtitle
+      externalUrl
+      startedAt
+      isLimited
+      searchQuery
+      endedAt
+      backgroundColor
+      __typename
+    }
+    __typename
+  }
+}

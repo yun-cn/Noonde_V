@@ -1,0 +1,17 @@
+FROM golang:1.11-alpine3.8
+
+RUN apk update && apk upgrade && \
+    apk add --no-cache git curl && \
+    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+WORKDIR /go/src/github.com/yun313350095/Noonde/api
+
+COPY . /go/src/github.com/yun313350095/Noonde/api
+
+WORKDIR /go/src/github.com/yun313350095/noonde/api/cmd/spacemarket
+
+RUN go install
+
+WORKDIR /go/src/github.com/yun313350095/noonde/api/deploy
+
+ENTRYPOINT ["sh", "./entry-job.sh"]

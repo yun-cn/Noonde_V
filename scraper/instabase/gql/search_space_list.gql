@@ -1,0 +1,59 @@
+query SearchResult($prefectureId: Int = null, $wardId: Int = null, $areaId: Int = null, $categoryIds: [Int!] = null, $usageIds: [Int!] = null, $capacityIds: [Int!] = null, $equipmentIds: [Int!] = null, $conditionIds: [Int!] = null, $stationId: Int = null, $topLeftLat: Float = null, $topLeftLon: Float =null, $bottomRightLat: Float = null, $bottomRightLon: Float = null, $fromDateYear: Int = null, $fromDateMonth: Int = null, $fromDateDay: Int = null, $fromTime: String = null, $toTime: String = null, $orderBy: String = null, $page: Int = null, $perPage: Int = null) {
+  spaces: search(prefectureId: $prefectureId,wardId: $wardId, areaId: $areaId, cat: $categoryIds, u: $usageIds, c: $capacityIds, e: $equipmentIds, f: $conditionIds, s: $stationId, topLeftLat: $topLeftLat, topLeftLon: $topLeftLon, bottomRightLat: $bottomRightLat, bottomRightLon: $bottomRightLon, fromDateYear: $fromDateYear, fromDateMonth: $fromDateMonth,fromDateDay: $fromDateDay, fromTime: $fromTime, toTime: $toTime, orderBy: $orderBy, page: $page, perPage: $perPage) {
+    __typename
+    ...space
+  }
+}fragment space on Room {
+  __typename
+  images: roomImages {
+    __typename
+    spaceId: roomId
+    id
+    filePath(version: medium)
+    largeFilePath:filePath(version: large)
+  }
+  id
+  title
+  friendlyTitle
+  isAnyAvailable
+  isOrderApprove
+  seoDescription
+  square
+  reviewCount
+  averagePoint
+  spaceType: roomType
+  capacity
+  summaryPrice
+  summaryMinPrice
+  summaryMaxPrice
+  spaceUrl: siteUrl
+  building {
+    __typename
+summaryAccesses: summaryAccess {
+      __typename
+      access
+      line
+      station
+    }
+    lat
+    lon
+    parentArea {
+      __typename
+      id
+      title
+    }
+  }
+  plans {
+    __typename
+    id
+    title
+    weekDays
+    businessHours
+    summaryPriceRange
+bookingHourSummaryPriceRange
+    minBookingHours
+    pointReturn
+    lastminuteDiscount
+    advanceDiscount
+  }
+}

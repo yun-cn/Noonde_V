@@ -1,0 +1,15 @@
+FROM golang:1.11-alpine3.10
+
+RUN apk update && apk upgrade && \
+    apk add --no-cache git curl && \
+    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+WORKDIR /go/src/github.com/yun313350095/noonde/api
+
+COPY . /go/src/github.com/yun313350095/noonde/api
+
+EXPOSE 3000
+
+RUN go install
+
+CMD api
